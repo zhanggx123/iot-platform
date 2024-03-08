@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tqzl.iot.modules.system.mapper.SysUserRoleMapper">
+
+
+    <insert id="insertUserRole">
+        INSERT INTO
+            tb_user_role (
+            name,
+            role,
+            status)
+        VALUES (#{name},
+                #{role},
+                1)
+    </insert>
+
+    <update id="updateUserRole">
+        UPDATE tb_user_role
+        SET name = #{name},
+            role = #{role},
+            update_time = current_timestamp
+        WHERE id = #{id}
+    </update>
+
+    <update id="deleteUserRoleById">
+        Update tb_user_role
+        set update_time = current_timestamp ,
+            status = 1
+    </update>
+
+    <select id="selectUserRoleById" resultType="com.tqzl.iot.common.core.model.bo.RoleBO">
+        select id,
+               name,
+               role,
+               create_time,
+               update_time,
+               status
+        from tb_user_role
+        where status = 1
+          and id = #{id}
+    </select>
+
+</mapper>

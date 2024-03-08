@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tqzl.iot.modules.system.mapper.SysUserPermissionMapper">
+
+
+    <insert id="insertUserPermission">
+        INSERT INTO
+            tb_user_permission (
+            name,
+            permission,
+            status)
+        VALUES (#{name},
+                #{permission},
+                1)
+    </insert>
+
+    <update id="updateUserPermission">
+        UPDATE tb_user_permission
+        SET name = #{name},
+            permission = #{permission},
+            update_time = current_timestamp
+        WHERE id = #{id}
+    </update>
+
+    <update id="deleteUserPermissionById">
+        Update tb_user_permission
+        set update_time = current_timestamp ,
+            status = 1
+    </update>
+
+    <select id="selectUserPermissionById" resultType="com.tqzl.iot.common.core.model.bo.PermissionBO">
+        select id,
+               name,
+               permission,
+               create_time,
+               update_time,
+               status
+        from tb_user_permission
+        where status = 1
+          and id = #{id}
+    </select>
+
+</mapper>

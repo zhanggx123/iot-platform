@@ -1,0 +1,34 @@
+server:
+  port: 8101
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  mvc:
+    pathmatch:
+      # swagger3.0需要：ant_path_matcher
+      # springboot2.6后默认为：path_pattern_parser
+      matching-strategy: ant_path_matcher
+  application:
+    name: iot-auth
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+jwt:
+  jwt:
+    # Jwt存储的请求头
+    tokenHeader: Authorization
+    # Jwt加密秘钥
+    secret: iot-secret
+    # Jwt 的超期限时间（60*60）*24
+    expiration: 604800
+    # Jwt负载中拿到开头
+    tokenHead: Bearer
+
+
