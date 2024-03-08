@@ -1,6 +1,7 @@
 package com.tqzl.iot.auth.controller;
 
 import com.google.code.kaptcha.impl.DefaultKaptcha;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +22,7 @@ import java.io.IOException;
  * @since [产品/模板版本号]
  */
 @RestController
+@Api("验证码")
 public class CaptchaController {
 
     @Autowired

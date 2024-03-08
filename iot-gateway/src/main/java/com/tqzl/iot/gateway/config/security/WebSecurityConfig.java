@@ -3,6 +3,7 @@ package com.tqzl.iot.gateway.config.security;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.web.server.SecurityWebFilterChain;
 
@@ -14,7 +15,7 @@ import org.springframework.security.web.server.SecurityWebFilterChain;
  * @since [产品/模板版本号]
  */
 @Configuration
-@EnableWebSecurity
+@EnableWebFluxSecurity
 public class WebSecurityConfig {
 
     @Bean

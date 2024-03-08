@@ -46,7 +46,7 @@ public class SwaggerResourceConfig implements SwaggerResourcesProvider {
         // 从网关路由中获取所有服务的host名
         List<String> routeHosts = new LinkedList<>();
         routeLocator.getRoutes().filter(route -> route.getUri().getHost() != null)
-                .subscribe(route -> routeHosts.add(route.getUri().getHost()));
+                .subscribe(route -> routeHosts.add(route.getUri().getHost().replaceAll("iot-(.*)", "$1")));
         // 将文档列表排序，服务多的时候以免显得混乱
         Collections.sort(routeHosts);
         // 不需要展示Swagger的服务列表,在swagger ui页面右上角下拉框中，将不再展示(改成你自己不需要展示的服务)

@@ -4,6 +4,7 @@ import com.tqzl.iot.common.core.model.CommonResult;
 import com.tqzl.iot.common.core.model.system.User;
 import com.tqzl.iot.modules.system.service.ISysUserService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +33,7 @@ public class SysUserController {
      * 获取当前用户信息
      */
     @GetMapping("/info/{username}")
+    @ApiOperation("获取当前用户信息")
     public CommonResult<User> info(@PathVariable("username") String username)
     {
         User user = sysUserService.queryUserByUserName(username);

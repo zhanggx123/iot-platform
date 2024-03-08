@@ -4,6 +4,7 @@ import com.tqzl.iot.auth.form.LoginBody;
 import com.tqzl.iot.auth.service.LoginService;
 import com.tqzl.iot.common.core.model.CommonResult;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,6 +27,7 @@ public class AuthController {
     private LoginService loginService;
 
     @PostMapping("/login")
+    @ApiOperation("登录获取token")
     public CommonResult login(@RequestBody LoginBody loginBody, HttpServletRequest request){
         return loginService.login(loginBody, request);
     }
