@@ -47,7 +47,7 @@ public class LoginService {
                 put("expire",System.currentTimeMillis() + 1000 * 60 * 60 *24 *15);
             }
         };
-        String token = JWTUtil.createToken(map, "123".getBytes());
+        String token = JWTUtil.createToken(map, "tqzl-iot-platform".getBytes());
         return CommonResult.success(token);
     }
 

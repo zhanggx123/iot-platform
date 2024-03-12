@@ -30,5 +30,3 @@ jwt:
     expiration: 604800
     # Jwt负载中拿到开头
     tokenHead: Bearer
-
-
