@@ -16,6 +16,7 @@
 
     <modules>
         <module>iot-modules-system</module>
+        <module>iot-modules-equipment</module>
     </modules>
 
     <dependencies>

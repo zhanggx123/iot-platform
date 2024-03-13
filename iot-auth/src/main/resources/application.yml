@@ -20,13 +20,6 @@ management:
       exposure:
         include: "*"
 
-jwt:
-  jwt:
-    # Jwt存储的请求头
-    tokenHeader: Authorization
-    # Jwt加密秘钥
-    secret: iot-secret
-    # Jwt 的超期限时间（60*60）*24
-    expiration: 604800
-    # Jwt负载中拿到开头
-    tokenHead: Bearer
+iot:
+  platform:
+    keyPari: dHF6bC1pb3RQbGF0Zm9ybQ==

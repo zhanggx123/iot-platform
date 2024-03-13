@@ -2,13 +2,11 @@ package com.tqzl.iot.modules.system.controller;
 
 import com.tqzl.iot.common.core.model.CommonResult;
 import com.tqzl.iot.common.core.model.system.User;
+import com.tqzl.iot.modules.system.model.dto.UserDTO;
 import com.tqzl.iot.modules.system.service.ISysUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Author ZhangGuoXiang
@@ -38,6 +36,19 @@ public class SysUserController {
     {
         User user = sysUserService.queryUserByUserName(username);
         return CommonResult.success(user);
+    }
+
+    @PostMapping("/createUser")
+    @ApiOperation("创建用户")
+    public CommonResult createUser(@RequestBody UserDTO dto){
+        sysUserService.insertUser(dto);
+        return CommonResult.success("创建成功");
+    }
+
+    @PostMapping("/updateUser")
+    public CommonResult updateUser(@RequestBody UserDTO dto){
+        sysUserService.updateUser(dto);
+        return CommonResult.success("更新成功");
     }
 
 }

@@ -7,7 +7,9 @@ import com.tqzl.iot.auth.form.LoginBody;
 import com.tqzl.iot.common.core.constant.SecurityConstants;
 import com.tqzl.iot.common.core.model.CommonResult;
 import com.tqzl.iot.common.core.model.system.User;
+import com.tqzl.iot.common.core.utils.EncryptionUtil;
 import com.tqzl.iot.system.api.service.RemoteUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
@@ -24,8 +26,11 @@ public class LoginService {
 
     private final RemoteUserService remoteUserService;
 
-    public LoginService(RemoteUserService remoteUserService) {
+    private final EncryptionUtil encryptionUtil;
+
+    public LoginService(RemoteUserService remoteUserService, EncryptionUtil encryptionUtil) {
         this.remoteUserService = remoteUserService;
+        this.encryptionUtil = encryptionUtil;
     }
 
     public CommonResult login(LoginBody loginBody, HttpServletRequest request){
@@ -34,7 +39,9 @@ public class LoginService {
             return CommonResult.error("验证码填写错误");
         }
         CommonResult<User> userInfo = remoteUserService.getUserInfo(loginBody.getUserName(), SecurityConstants.INNER);
-        if(ObjUtil.isNull(userInfo.getResultObject()) || ! loginBody.getPassword().equals(userInfo.getResultObject().getPassword())){
+        if(ObjUtil.isNull(userInfo.getResultObject()) ||
+                ! encryptionUtil.matchesPassword(loginBody.getPassword(),
+                        userInfo.getResultObject().getPassword())){
             return CommonResult.error("用户名或密码不正确");
         }
         HashMap<String, Object> map = new HashMap<String,Object>() {
