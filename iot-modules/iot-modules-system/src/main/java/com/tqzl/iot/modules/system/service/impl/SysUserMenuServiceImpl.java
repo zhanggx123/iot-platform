@@ -41,8 +41,8 @@ public class SysUserMenuServiceImpl implements ISysUserMenuService {
     }
 
     @Override
-    public Menu selectUserMenuById(Long id) {
-        MenuBO menuBO = userMenuMapper.selectUserMenuById(id);
+    public Menu selectUserMenuByName(String name) {
+        MenuBO menuBO = userMenuMapper.selectUserMenuById(name);
         return BeanUtil.copyProperties(menuBO,Menu.class);
     }
 }

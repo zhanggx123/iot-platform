@@ -37,6 +37,6 @@
                status
         from tb_user_menu
         where status = 1
-          and id = #{id}
+          and name = #{name}
     </select>
 </mapper>

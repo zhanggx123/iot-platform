@@ -30,9 +30,9 @@ public class SysUserMenuPermissionController {
         this.menuRoleHandler = menuRoleHandler;
     }
 
-    @GetMapping("/menu/{id}")
-    public CommonResult queryMenuById(@PathVariable("id") int id){
-        Menu menu = menuRoleHandler.queryMenuById(id);
+    @GetMapping("/menu/{name}")
+    public CommonResult queryMenuById(@PathVariable("name") String name){
+        Menu menu = menuRoleHandler.queryMenuByName(name);
         return CommonResult.success(menu);
     }
 

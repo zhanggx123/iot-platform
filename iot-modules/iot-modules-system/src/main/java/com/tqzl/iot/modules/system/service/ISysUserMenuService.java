@@ -33,9 +33,9 @@ public interface ISysUserMenuService {
 
     /**
      * 查询数据
-     * @param id
+     * @param name
      * @return
      */
-    Menu selectUserMenuById(Long id);
+    Menu selectUserMenuByName(String name);
 
 }

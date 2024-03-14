@@ -32,8 +32,8 @@ public class MenuRoleHandler {
     }
 
 
-    public Menu queryMenuById(long menuId){
-        return userMenuService.selectUserMenuById(menuId);
+    public Menu queryMenuByName(String name){
+        return userMenuService.selectUserMenuByName(name);
     }
 
     public void deleteMenuById(long menuId){

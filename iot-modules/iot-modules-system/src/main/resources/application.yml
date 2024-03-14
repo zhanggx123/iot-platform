@@ -27,3 +27,6 @@ mybatis:
   mapper-locations: classpath*:/mapper/*Mapper.xml
   configuration:
     map-underscore-to-camel-case: true
+iot:
+  platform:
+    keyPari: dHF6bC1pb3RQbGF0Zm9ybQ==

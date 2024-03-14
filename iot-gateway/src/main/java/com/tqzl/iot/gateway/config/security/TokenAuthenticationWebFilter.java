@@ -3,6 +3,7 @@ package com.tqzl.iot.gateway.config.security;
 import cn.hutool.core.util.ObjUtil;
 import cn.hutool.jwt.JWT;
 import cn.hutool.jwt.JWTUtil;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 import org.springframework.web.server.ServerWebExchange;
@@ -32,14 +33,10 @@ public class TokenAuthenticationWebFilter implements WebFilter {
             JWT jwt = null;
             jwt = JWTUtil.parseToken(token);
             if (ObjUtil.isNotEmpty(jwt)) {
-//                UserBO user = userService.getByJwtClaims(jwt.getClaims());
-
-//                if (user == null) {
-//                    throw new UsernameNotFoundException("用户不存在");
-//                }
+                // 此处还应该判断token 是否正确，后续再加
+                throw new UsernameNotFoundException("用户不存在");
             }
         }
-
         return chain.filter(exchange);
     }
 }

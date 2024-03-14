@@ -1,5 +1,9 @@
 package com.tqzl.iot.modules.system.model.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 /**
  * @Author ZhangGuoXiang
  * @Date [2024/3/7 16:53]
@@ -7,5 +11,13 @@ package com.tqzl.iot.modules.system.model.dto;
  * @see [相关类/方法]
  * @since [产品/模板版本号]
  */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class RoleDTO {
+
+    private String name;
+
+    private String role;
+
 }

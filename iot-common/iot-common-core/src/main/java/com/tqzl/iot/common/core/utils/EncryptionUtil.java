@@ -5,6 +5,7 @@ import cn.hutool.crypto.SecureUtil;
 import cn.hutool.crypto.symmetric.SymmetricAlgorithm;
 import cn.hutool.crypto.symmetric.SymmetricCrypto;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 /**
  * @Author ZhangGuoXiang
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Value;
  * @see [相关类/方法]
  * @since [产品/模板版本号]
  */
+@Component
 public class EncryptionUtil {
 
     @Value("${iot.platform.keyPari}")

@@ -34,9 +34,9 @@ public interface SysUserMenuMapper {
 
     /**
      * 查询数据
-     * @param id
+     * @param name
      * @return
      */
-    MenuBO selectUserMenuById(Long id);
+    MenuBO selectUserMenuById(String name);
 
 }
